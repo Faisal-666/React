@@ -3,7 +3,7 @@ node {
     docker.image(image).inside('-p 3000:3000') {
         stage('Build') {
             sh 'npm cache clean --force'
-            sh 'npm install'
+            sh 'npm install --force'
         }
         stage('Test') {
             sh './jenkins/scripts/test.sh'
