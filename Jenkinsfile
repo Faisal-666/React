@@ -1,6 +1,6 @@
 node {
     def image = 'node:16-buster-slim'
-    docker.image(image).inside('-p 5000:5000') {
+    docker.image(image).inside('-p 3000:3000') {
         stage('Build') {
             sh 'npm cache clean --force'
             sh 'npm install'
