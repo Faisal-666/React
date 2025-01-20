@@ -8,6 +8,7 @@ node {
 	    GUTHUB_REPOSITORY = 'Faisal-666/React'
 	}
 	stage('Build') {
+	    sh 'apt-get update && apt-get install -y git'
             sh 'npm cache clean --force'
             sh 'npm install --force'
         }
