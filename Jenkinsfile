@@ -22,5 +22,6 @@ node {
 	    sleep time: 5, unit: 'SECONDS'
 	    sh './jenkins/scripts/kill.sh'
 	    sh 'chmod +x ./jenkins/scripts/gh-pages.sh && ./jenkins/scripts/gh-pages.sh'
-    }
+	}
+     }
 }
