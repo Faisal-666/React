@@ -1,8 +1,13 @@
 node {
   checkout scm
-    def image = 'node:16-buster-slim'
+    def image = 'timbrul31/node-alpine-git:16'
     docker.image(image).inside('-p 3000:3000') {
-        stage('Build') {
+	environment {
+	    PUBLIC_URL = 'https://Faisal-666.github.io/React'
+	    GITHUB_TOKEN = credentials('j-github-token')
+	    GUTHUB_REPOSITORY = 'Faisal-666/React'
+	}
+	stage('Build') {
             sh 'npm cache clean --force'
             sh 'npm install --force'
         }
@@ -14,8 +19,8 @@ node {
 	}
 	stage('Deploy') {
 	    sh './jenkins/scripts/deliver.sh'
-	    sleep time: 60, unit: 'SECONDS'
+	    sleep time: 5, unit: 'SECONDS'
 	    sh './jenkins/scripts/kill.sh'
-	}
+	    sh 'chmod +x ./jenkins/scripts/gh-pages.sh && ./jenkins/scripts/gh-pages.sh'
     }
 }
