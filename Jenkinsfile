@@ -1,6 +1,6 @@
 node {
   checkout scm
-    def image = 'timbrul31/node-alpine-git:16'
+    def image = 'node:16-buster-slim'
     docker.image(image).inside('-p 3000:3000') {
 	environment {
 	    PUBLIC_URL = 'https://Faisal-666.github.io/React'
