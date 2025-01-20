@@ -1,6 +1,7 @@
 node {
   checkout scm
     def image = 'node:16-buster-slim'
+  
     docker.image(image).inside('-p 3000:3000') {
 	stage('Build') {
 	    sh 'apt-get update && apt-get install -y git'
@@ -17,7 +18,7 @@ node {
 	    sh './jenkins/scripts/deliver.sh'
 	    sleep time: 5, unit: 'SECONDS'
 	    sh './jenkins/scripts/kill.sh'
-	  withEnv(["PUBLIC_URL=https://faisal-666.github.io/React"]){
+	  withEnv("https://faisal-666.github.io/React"){
 	    sh 'chmod +x ./jenkins/scripts/gh-pages.sh && ./jenkins/scripts/gh-pages.sh'
 	  }
 	}
