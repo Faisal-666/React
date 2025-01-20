@@ -2,11 +2,6 @@ node {
   checkout scm
     def image = 'node:16-buster-slim'
     docker.image(image).inside('-p 3000:3000') {
-	environment {
-	    PUBLIC_URL = 'https://Faisal-666.github.io/React'
-	    GITHUB_TOKEN = credentials('j-github-token')
-	    GITHUB_REPOSITORY = 'Faisal-666/React'
-	}
 	stage('Build') {
 	    sh 'apt-get update && apt-get install -y git'
             sh 'npm cache clean --force'
