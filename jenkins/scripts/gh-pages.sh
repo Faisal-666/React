@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 set -x
+
 ls build
 
 git config --global user.email "faisalakbar661@gmail.com"

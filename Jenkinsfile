@@ -1,6 +1,7 @@
 node {
   checkout scm
     def image = 'node:16-buster-slim'
+    def PUBLIC_URL = 'https://faisal-666.github.io/React'
     docker.image(image).inside('-p 3000:3000') {
 	stage('Build') {
 	    sh 'apt-get update && apt-get install -y git'
