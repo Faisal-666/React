@@ -18,7 +18,9 @@ node {
 	    sh './jenkins/scripts/deliver.sh'
 	    sleep time: 5, unit: 'SECONDS'
 	    sh './jenkins/scripts/kill.sh'
+	  withEnc(["PUBLIC_URL"]){
 	    sh 'chmod +x ./jenkins/scripts/gh-pages.sh && ./jenkins/scripts/gh-pages.sh'
+	  }
 	}
      }
 }
