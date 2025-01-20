@@ -5,7 +5,7 @@ node {
 	environment {
 	    PUBLIC_URL = 'https://Faisal-666.github.io/React'
 	    GITHUB_TOKEN = credentials('j-github-token')
-	    GUTHUB_REPOSITORY = 'Faisal-666/React'
+	    GITHUB_REPOSITORY = 'Faisal-666/React'
 	}
 	stage('Build') {
 	    sh 'apt-get update && apt-get install -y git'
